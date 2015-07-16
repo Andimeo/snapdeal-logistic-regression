@@ -10,7 +10,7 @@ from snapdeal_spider.items import SnapdealSpiderItem
 class SnapdealSpider(Spider):
     name = 'snapdeal_spider'
     allowed_domains = ['snapdeal.com']
-    start_url_template = 'http://www.snapdeal.com/acors/json/product/get/search/0/%d/%d?q=&sort=bstslr&gs=3&keyword=%s&viewType=List&snr=false'
+    start_url_template = 'http://www.snapdeal.com/acors/json/product/get/search/0/%d/%d?q=&sort=rlvncy&gs=3&keyword=%s&viewType=List&snr=false'
     
     batch_num = 40
     
