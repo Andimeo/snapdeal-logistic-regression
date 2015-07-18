@@ -13,7 +13,7 @@ class SnapdealSpider(Spider):
     start_url_template = 'http://www.snapdeal.com/acors/json/product/get/search/0/%d/%d?q=&sort=rlvncy&gs=3&keyword=%s&viewType=List&snr=false'
     
     batch_num = 40
-    
+    max_retrieve_num = 40 * 300
     def __init__(self, *args, **kwargs): 
         super(SnapdealSpider, self).__init__(*args, **kwargs) 
         self.start_urls = self.parse_start_urls(kwargs.get('queries')) 
@@ -42,5 +42,5 @@ class SnapdealSpider(Spider):
                 start += 1
                 yield item
         
-        if start_pos <= total_num:
+        if start_pos <= total_num and start_pos < max_retrieve_num:
             yield(Request(url = self.start_url_template % (start_pos, self.batch_num, query), callback = self.parse, meta={'rank':start}))
