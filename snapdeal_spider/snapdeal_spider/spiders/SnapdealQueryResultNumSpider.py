@@ -28,7 +28,7 @@ class SnapdealQueryResultNumSpider(Spider):
         query = response.url.split('&')[-3].split('=', 2)[1]
         total_num = int(response.xpath('//div[2]/text()').extract()[0])
         
-        item = SnapdealQueryResultNumItemSpiderItem()
+        item = SnapdealQueryResultNumItem()
         item['query'] = query
         item['num'] = total_num
         yield item
