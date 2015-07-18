@@ -42,5 +42,5 @@ class SnapdealSpider(Spider):
                 start += 1
                 yield item
         
-        if start_pos <= total_num and start_pos < max_retrieve_num:
+        if start_pos <= total_num and start_pos < self.max_retrieve_num:
             yield(Request(url = self.start_url_template % (start_pos, self.batch_num, query), callback = self.parse, meta={'rank':start}))
