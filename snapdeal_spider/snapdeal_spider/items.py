@@ -13,3 +13,9 @@ class SnapdealSpiderItem(scrapy.Item):
     product_id = scrapy.Field()
     query = scrapy.Field()
     rank = scrapy.Field()
+
+class SnapdealQueryResultNumItem(scrapy.Item):
+    # define the fields for your item here like:
+    # name = scrapy.Field()
+    query = scrapy.Field()
+    num = scrapy.Field()
